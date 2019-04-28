@@ -25,7 +25,9 @@ public final class FormatConversion {
         Bitmap result = null;
 
         if (isPath(string)) {
-            result = BitmapFactory.decodeFile(string);
+            String tempUrlString = "";
+            tempUrlString = string.replace("file://", "");
+            result = BitmapFactory.decodeFile(tempUrlString);
         } else if (isBase64String(string)) {
             String parseString = string.substring(string.indexOf(",") + 1);
             try {
